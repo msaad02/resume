@@ -18,6 +18,8 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{fontawesome} % Add this line to import the fontawesome package
+\usepackage{multicol}
 \input{glyphtounicode}
 
 
@@ -92,6 +94,7 @@
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
@@ -111,11 +114,22 @@
 %   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
 % \end{tabular*}
 
+% \begin{center}
+%     \textbf{\Huge Matthew Saad} \\ \vspace{1pt}
+%     \small (585) 270-9450 $|$ 
+%     \href{mailto:msaad02@outlook.com}{\underline{msaad02@outlook.com}} $|$ 
+%     \href{https://www.linkedin.com/in/mattsaad/}{\underline{linkedin.com/in/mattsaad}} $|$
+%     \href{https://github.com/msaad02}{\underline{github.com/msaad02}}
+% \end{center}
+
+
 \begin{center}
-    \textbf{\Huge \scshape Jake Ryan} \\ \vspace{1pt}
-    \small 123-456-7890 $|$ \href{mailto:x@x.com}{\underline{jake@su.edu}} $|$ 
-    \href{https://linkedin.com/in/...}{\underline{linkedin.com/in/jake}} $|$
-    \href{https://github.com/...}{\underline{github.com/jake}}
+    {\Huge \scshape Matthew Saad} \\ \vspace{3pt}
+    \small \raisebox{-0.1\height}{\faPhone}\ 585-270-9450 $|$ 
+    \href{mailto:msaad02@outlook.com}{\raisebox{-0.2\height}{\faEnvelope}\  \underline{msaad02@outlook.com}} $|$ 
+    \href{https://www.linkedin.com/in/mattsaad/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/mattsaad/}}  $|$
+    \href{https://github.com/msaad02}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/msaad02}}
+    \vspace{-2pt}
 \end{center}
 
 
@@ -123,12 +137,33 @@
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Southwestern University}{Georgetown, TX}
-      {Bachelor of Arts in Computer Science, Minor in Business}{Aug. 2018 -- May 2021}
-    \resumeSubheading
-      {Blinn College}{Bryan, TX}
-      {Associate's in Liberal Arts}{Aug. 2014 -- May 2018}
+      {SUNY Brockport}{Brockport, NY}
+      {B.S. Computer Science/Mathematics}{Aug 2020 -- May 2024}
+      \resumeItemListStart
+        \resumeItem{Double Major with concentrations in Software Engineering and Statistics.}
+        \resumeItem{Member of the Honors College; 3.9/4.0 GPA.}
+      \resumeItemListEnd
   \resumeSubHeadingListEnd
+
+%------RELEVANT COURSEWORK-------
+\section{Relevant Coursework}
+\vspace{-15pt}
+%\resumeSubHeadingListStart
+    \begin{multicols}{4}
+        \begin{itemize}[itemsep=-1pt, parsep=3pt]
+            \item\small Artificial Intelligence
+            \item Software Engineering
+            \item Database Management
+            \item Probability Theory
+            \item Data Analytics
+            \item Computer Networks
+            \item Linear Algebra
+            \item Time Series
+        \end{itemize}
+    \end{multicols}
+    \vspace*{2.0\multicolsep}
+%\resumeSubHeadingListEnd
+\vspace{-40pt}
 
 
 %-----------EXPERIENCE-----------
@@ -136,14 +171,17 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Undergraduate Research Assistant}{June 2020 -- Present}
-      {Texas A\&M University}{College Station, TX}
-      \resumeItemListStart
-        \resumeItem{Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems}
-        \resumeItem{Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data}
-        \resumeItem{Explored ways to visualize GitHub collaboration in a classroom setting}
-      \resumeItemListEnd
-      
+    {Data Science Intern}{Jun 2022 - Present}
+    {Excellus BCBS}{Rochester, NY}
+    \resumeItemListStart
+        \resumeItem{Developed a KNN and Random Forest-based recommendation engine to enhance member targeting strategies.}
+        \resumeItem{Implemented BERT and T5 for telehealth call summarization, improving patient-doctor communication efficiency.}
+        \resumeItem{Automated ML pipeline processes, significantly accelerating model run times and operational workflows.}
+        \resumeItem{Built RShiny apps for process visualization and terminal emulation to support company-wide ML automation.}
+        \resumeItem{Refined internal-use chatbots using LLMs, streamlining policy document retrieval and data management.}
+        \resumeItem{Presented work on various occations to stakeholders and executives.}
+    \resumeItemListEnd
+
 % -----------Multiple Positions Heading-----------
 %    \resumeSubSubheading
 %     {Software Engineer I}{Oct 2014 - Sep 2016}
@@ -155,25 +193,21 @@
 %-------------------------------------------
 
     \resumeSubheading
-      {Information Technology Support Specialist}{Sep. 2018 -- Present}
-      {Southwestern University}{Georgetown, TX}
-      \resumeItemListStart
-        \resumeItem{Communicate with managers to set up campus computers used on campus}
-        \resumeItem{Assess and troubleshoot computer problems brought by students, faculty and staff}
-        \resumeItem{Maintain upkeep of computers, classroom equipment, and 200 printers across campus}
+    {Student Employee}{Aug 2022 - Present}
+    {SUNY Brockport}{Brockport, NY}
+    \resumeItemListStart
+        \resumeItem{Lab Assistant for CSC203: Object-Oriented Programming and CSC311: Computer Architecture (2 yrs.)}
+        \resumeItem{Math tutor in the SUNY Brockport Academic Success Center (1 yr.)}
+        \resumeItem{Grader for MTH201: Calculus I (0.5 yr.)}
     \resumeItemListEnd
 
     \resumeSubheading
-      {Artificial Intelligence Research Assistant}{May 2019 -- July 2019}
-      {Southwestern University}{Georgetown, TX}
-      \resumeItemListStart
-        \resumeItem{Explored methods to generate video game dungeons based off of \emph{The Legend of Zelda}}
-        \resumeItem{Developed a game in Java to test the generated dungeons}
-        \resumeItem{Contributed 50K+ lines of code to an established codebase via Git}
-        \resumeItem{Conducted  a human subject study to determine which video game dungeon generation technique is enjoyable}
-        \resumeItem{Wrote an 8-page paper and gave multiple presentations on-campus}
-        \resumeItem{Presented virtually to the World Conference on Computational Intelligence}
-      \resumeItemListEnd
+    {Intel Representative}{Sep 2021 - Mar 2023}
+    {ActionLink}{Henrietta, NY}
+    \resumeItemListStart
+        \resumeItem{Promoted Intel’s brand through enthusiastic customer and employee engagement.}
+        \resumeItem{Improved participation in Intel's promotions and programs at BestBuy Henrietta.}
+    \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
@@ -182,34 +216,39 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
+          {\textbf{BrockportGPT} $|$ \emph{Senior Honors Thesis} $|$ \href{https://github.com/msaad02/honors-thesis}{\underline{github.com/msaad02/honors-thesis}}}{Apr 2023 -- Present}
           \resumeItemListStart
-            \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
-            \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
-            \resumeItem{Visualized GitHub data to show collaboration}
-            \resumeItem{Used Celery and Redis for asynchronous tasks}
+            \resumeItem{Leveraged state-of-the-art advancements in generative AI to create a chatbot for SUNY Brockport.}
+            \resumeItem{Utilized approaches such as RAG, fine-tuning, and training a from scratch 184M transformer model.}
+            \resumeItem{Achieved strong performance that consistently delivers relevant responses to user inquiries.}
+            \resumeItem{Presented BrockportGPT at SUNY Brockport Scholars Day, CCSCNE 2024, and SURC 2024.}
           \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
-          \resumeItemListStart
-            \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
-            \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
-            \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
-            \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
-          \resumeItemListEnd
+
+        \resumeProjectHeading
+            {\textbf{Chess AI Bot} $|$ \emph{AI/ML Final Project} $|$ \href{https://github.com/msaad02/final-project-ai-ml}{\underline{github.com/msaad02/final-project-ai-ml}}}{May 2023}
+            \resumeItemListStart
+            \resumeItem{Developed a chess AI bot using deep learning techniques with minimax and alpha-beta pruning.}
+            \resumeItem{Gained experience with Tensorflow and learned basics of neural network training.}
+            \resumeItem{Worked with a team of four to develop and present our final project to the class.}
+            \resumeItemListEnd
+
+        \resumeProjectHeading
+            {\textbf{Car Price Prediciton} $|$ \emph{Data Science Final Project} $|$ \href{https://github.com/msaad02/final-project-data-sci}{\underline{github.com/msaad02/final-project-data-sci}}}{Dec 2021}
+            \resumeItemListStart
+            \resumeItem{Learned the mathematical foundation behind different machine learning algorithms.}
+            \resumeItem{Performed data manipulation on a dataset of used cars to predict their price.}
+            \resumeItemListEnd
+
     \resumeSubHeadingListEnd
 
 
-
-%
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, HTML/CSS, R} \\
-     \textbf{Frameworks}{: React, Node.js, Flask, JUnit, WordPress, Material-UI, FastAPI} \\
-     \textbf{Developer Tools}{: Git, Docker, TravisCI, Google Cloud Platform, VS Code, Visual Studio, PyCharm, IntelliJ, Eclipse} \\
-     \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+     \textbf{Languages}{: Python, R, Java, SQL, C, Bash} \\
+     \textbf{Developer Tools}{: Git, Docker, Databricks, VS Code, PyCharm, IntelliJ, Posit Connect} \\
+     \textbf{Libraries}{: PyTorch, Tensorflow, Tidyverse, pandas, NumPy, Matplotlib}
     }}
  \end{itemize}
 
