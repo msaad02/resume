@@ -28,7 +28,7 @@
 % \usepackage[sfdefault]{FiraSans}
 % \usepackage[sfdefault]{roboto}
 % \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
+\usepackage[default]{sourcesanspro}
 
 % serif
 % \usepackage{CormorantGaramond}
@@ -141,38 +141,29 @@
       {B.S. Computer Science/Mathematics}{Aug 2020 -- May 2024}
       \resumeItemListStart
         \resumeItem{Double Major with concentrations in Software Engineering and Statistics.}
-        \resumeItem{Member of the Honors College; 3.9/4.0 GPA.}
+        \resumeItem{Honors College; 3.9/4.0 GPA \textit{summa cum laude}.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
-
-%------RELEVANT COURSEWORK-------
-\section{Relevant Coursework}
-\vspace{-15pt}
-%\resumeSubHeadingListStart
-    \begin{multicols}{4}
-        \begin{itemize}[itemsep=-1pt, parsep=3pt]
-            \item\small Artificial Intelligence
-            \item Software Engineering
-            \item Database Management
-            \item Probability Theory
-            \item Data Analytics
-            \item Computer Networks
-            \item Linear Algebra
-            \item Time Series
-        \end{itemize}
-    \end{multicols}
-    \vspace*{2.0\multicolsep}
-%\resumeSubHeadingListEnd
-\vspace{-40pt}
 
 
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
 
+  % Latest
     \resumeSubheading
-    {Data Science Intern}{Jun 2022 - Present}
     {Excellus BCBS}{Rochester, NY}
+    {Business Intelligence Administrator}{Jun 2024 - Present}
+    \resumeItemListStart
+        \resumeItem{Administered Databricks platform, ensuring secure access control and optimal workspace configurations.}
+        \resumeItem{Automated cluster management processes, improving resource efficiency and aligning with security compliance.}
+        \resumeItem{Developed SQL-based billing table and built an interactive dashboard to deliver real-time billing insights.}
+        \resumeItem{Resolved platform performance and security issues, enhancing the reliability of Databricks and other analytics platforms.}
+    \resumeItemListEnd
+
+    % SubSub Heading previous at same company
+    \resumeSubSubheading
+    {Data Science Intern}{Jun 2022 - May 2024}
     \resumeItemListStart
         \resumeItem{Engineered a KNN and Random Forest-based recommendation engine to enhance member experience.}
         \resumeItem{Led the deployment of a REST API, achieving a 60\% model efficiency gain through refactored code.}
@@ -182,28 +173,18 @@
         \resumeItem{Effectively presented work to Excellus BCBS stakeholders, executives, and the broader company.}
     \resumeItemListEnd
 
-% -----------Multiple Positions Heading-----------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-
     \resumeSubheading
-    {Student Employee}{Aug 2022 - Present}
     {SUNY Brockport}{Brockport, NY}
+    {Student Employee}{Aug 2022 - May 2024}
     \resumeItemListStart
-        \resumeItem{TA for CSC203: Object-Oriented Programming and CSC311: Computer Architecture (2 yrs.)}
+        \resumeItem{Teaching assistant for CSC203: Object-Oriented Programming and CSC311: Computer Architecture (2 yrs.)}
         \resumeItem{Math tutor in the SUNY Brockport Academic Success Center (1 yr.)}
         \resumeItem{Grader for MTH201: Calculus I (0.5 yr.)}
     \resumeItemListEnd
 
     \resumeSubheading
-    {Intel Representative}{Sep 2021 - Mar 2023}
     {ActionLink}{Henrietta, NY}
+    {Intel Representative}{Sep 2021 - Mar 2023}
     \resumeItemListStart
         \resumeItem{Improved customer engagement with Intel’s initiatives, resulting in increased brand awareness and sales.}
         \resumeItem{Boosted BestBuy Henrietta employee participation in Intel's promotions and programs by 23\%.}
@@ -216,7 +197,7 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{BrockportGPT} $|$ \emph{Senior Honors Thesis} $|$ \href{https://github.com/msaad02/honors-thesis}{\underline{github.com/msaad02/honors-thesis}}}{Apr 2023 -- Present}
+          {\textbf{BrockportGPT} $|$ \emph{Senior Honors Thesis} $|$ \href{https://github.com/msaad02/honors-thesis}{\underline{github.com/msaad02/honors-thesis}}}{Apr 2023 -- Jun 2024}
           \resumeItemListStart
             \resumeItem{Leveraged state-of-the-art advancements in generative AI to create a chatbot for SUNY Brockport.}
             \resumeItem{Utilized approaches such as RAG, fine-tuning, and training a from scratch 184M transformer model.}
@@ -242,12 +223,33 @@
     \resumeSubHeadingListEnd
 
 
+%------RELEVANT COURSEWORK-------
+% \section{Relevant Coursework}
+% \vspace{-15pt}
+% %\resumeSubHeadingListStart
+%     \begin{multicols}{4}
+%         \begin{itemize}[itemsep=-1pt, parsep=3pt]
+%             \item\small Artificial Intelligence
+%             \item Software Engineering
+%             \item Database Management
+%             \item Probability Theory
+%             \item Data Analytics
+%             \item Computer Networks
+%             \item Linear Algebra
+%             \item Time Series
+%         \end{itemize}
+%     \end{multicols}
+%     \vspace*{2.0\multicolsep}
+% %\resumeSubHeadingListEnd
+% \vspace{-40pt}
+
+
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Languages}{: Python, R, Java, SQL, C, Bash} \\
-     \textbf{Developer Tools}{: Git, Docker, Databricks, HuggingFace, Posit Connect} \\
+     \textbf{Developer Tools}{: Azure, AWS, Databricks, Git, Docker, HuggingFace, Posit Connect} \\
      \textbf{Libraries}{: PyTorch, Tensorflow, Tidyverse, pandas, NumPy, Matplotlib}
     }}
  \end{itemize}
