@@ -1,4 +1,4 @@
-name: Build résumé variants
+name: Build resume variants
 on: [push, workflow_dispatch]
 
 jobs:
@@ -16,8 +16,8 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y texlive-latex-extra latexmk
 
-      - name: Build résumé (${{ matrix.role }})
-        run: bash template/build_resume.sh ${{ matrix.role }}
+      - name: Build resume (${{ matrix.role }})
+        run: bash template/build.sh ${{ matrix.role }}
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
