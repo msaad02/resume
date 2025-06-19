@@ -1,7 +1,5 @@
 name: Build resume variants
-on:
-  push:
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -23,15 +21,13 @@ jobs:
             texlive-fonts-extra \
             texlive-fonts-recommended \
             latexmk
-
       - name: Build resume (${{ matrix.role }})
         run: bash template/build.sh ${{ matrix.role }}
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
-          pattern: *.pdf
-          path: output
+          path: output/*${{ matrix.role }}*.pdf
 
   commit:
     needs: build
@@ -46,8 +42,7 @@ jobs:
       - name: Pull PDFs from artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: *.pdf
-          path: output
+          path: output/*.pdf
           merge-multiple: true
 
       - name: Commit & push
