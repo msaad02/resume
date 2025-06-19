@@ -21,6 +21,12 @@ latexmk -pdf -silent \
         -outdir="$TMPFILES" \
         $TMPFILES/resume_build.tex
 
+if [ $? -ne 0 ]; then
+    echo "LaTeX build failed."
+    # rm -rf $TMPFILES
+    exit 1
+fi
+
 # Move the finished PDF where we want it
 mv "${TMPFILES}/${JOBNAME}.pdf" "$OUTDIR/${JOBNAME}.pdf"
 

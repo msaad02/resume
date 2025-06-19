@@ -14,7 +14,11 @@ jobs:
       - name: Install TeX Live + latexmk
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y texlive-latex-extra latexmk
+          sudo apt-get install -y \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-fonts-recommended \
+            latexmk
 
       - name: Build resume (${{ matrix.role }})
         run: bash template/build.sh ${{ matrix.role }}
