@@ -37,4 +37,4 @@ jobs:
           git add output/*.pdf
           git diff --cached --quiet && echo "no changes" && exit 0
           git commit -m "CI: update resume PDFs [skip ci]"
-          git push origin HEAD:${{ github.ref_name }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/msaad02/resume.git HEAD:${{ github.ref_name }}
