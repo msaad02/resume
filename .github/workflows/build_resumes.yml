@@ -1,36 +1,29 @@
 name: Build all resume variants
-
-on:
-  push:
-    paths:
-      - 'template/**'
-      - 'roles/**'
-      - '.github/workflows/build-resume.yml'
-  workflow_dispatch:
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         role: [de, mle] # [default, de, mle, ds, admin]
 
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Compile resume (${{ matrix.role }})
-        id: compile
+      - name: Compile (${{ matrix.role }})
         uses: xu-cheng/latex-action@v2
         with:
           pre_compile: |
-            echo "\input{roles/${{ matrix.role }}.tex}\input{template/resume.tex}" > build.tex
+            cat <<'EOF' > build.tex
+            \input{roles/${{ matrix.role }}.tex}
+            \input{template/resume.tex}
+            EOF
           root_file: build.tex
           args: -pdf -silent -jobname=resume_${{ matrix.role }}
-          post_compile: "latexmk -c"
-
-      - name: Upload PDF artifact
+          post_compile: latexmk -c   # wipe aux, log, fls
+          
+      - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: resume-${{ matrix.role }}
