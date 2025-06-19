@@ -20,18 +20,15 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
 
-      # ---- compile with latex-action ----
-      - name: Compile résumé (${{ matrix.role }})
+      - name: Compile resume (${{ matrix.role }})
         id: compile
         uses: xu-cheng/latex-action@v2
         with:
-          # we generate a one-liner build file here
           pre_compile: |
             echo "\input{roles/${{ matrix.role }}.tex}\input{template/resume.tex}" > build.tex
-          root_file: build.tex                       # required input :contentReference[oaicite:0]{index=0}
-          # give latexmk a clean jobname so the PDF is predictable
+          root_file: build.tex
           args: -pdf -silent -jobname=resume_${{ matrix.role }}
-          post_compile: "latexmk -c"                 # wipe aux/ log junk :contentReference[oaicite:1]{index=1}
+          post_compile: "latexmk -c"
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
