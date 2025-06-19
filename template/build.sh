@@ -7,6 +7,7 @@ TMPFILES=./tmpfiles
 JOBNAME="resume_${ROLE}"
 YYYYMM=$(date '+%Y%m')
 
+mkdir -p $OUTDIR
 mkdir -p $TMPFILES
 
 cp template/resume.tex $TMPFILES/resume_build.tex
