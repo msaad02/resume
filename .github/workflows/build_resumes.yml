@@ -1,84 +1,45 @@
-# name: Build resume variants
-# on: [workflow_dispatch] # push
-
-# permissions:
-#   contents: write
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         role: [de, mle] # [default, de, mle, ds, admin]
-
-#     steps:
-#       - uses: actions/checkout@v4
-#         with:
-#             token: ${{ secrets.GITHUB_TOKEN }}
-
-#       - name: Install TeX Live + latexmk
-#         run: |
-#           sudo apt-get update -qq
-#           sudo apt-get install -y \
-#             texlive-latex-extra \
-#             texlive-fonts-extra \
-#             texlive-fonts-recommended \
-#             latexmk
-
-#       - name: Build resume (${{ matrix.role }})
-#         run: bash template/build.sh ${{ matrix.role }}
-
-#       - name: Upload PDF
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: resume-${{ matrix.role }}
-#           path: output/resume_${{ matrix.role }}.pdf
-
-#       - name: Commit PDF to repo
-#         run: |
-#           git config user.name  "github-actions[bot]"
-#           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-#           git add output/*.pdf
-#           git diff --cached --quiet && echo "no changes" && exit 0
-#           git commit -m "CI: update resume PDFs [skip ci]"
-#           git push origin HEAD:${{ github.ref_name }}
-
-name: Build résumé variants
-on: [workflow_dispatch]
+name: Build resume variants
+on: [workflow_dispatch] # push
 
 permissions:
-  contents: write          # to commit PDFs
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 1      # serial to avoid push collisions
       matrix:
-        role: [de, mle]    # add others when ready
+        role: [de, mle] # [default, de, mle, ds, admin]
 
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Compile résumé (${{ matrix.role }})
-        uses: xu-cheng/latex-action@v2
+      - name: Install TeX Live + latexmk
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-fonts-recommended \
+            latexmk
+
+      - name: Build resume (${{ matrix.role }})
+        run: bash template/build.sh ${{ matrix.role }}
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
         with:
-          pre_compile: |
-            printf '\\input{roles/%s.tex}\\input{template/resume.tex}\n' "${{ matrix.role }}" > build.tex
-          root_file: build.tex
-          args: -pdf -silent -jobname=resume_${{ matrix.role }}
-          post_compile: latexmk -c
+          name: resume-${{ matrix.role }}
+          path: output/resume_${{ matrix.role }}.pdf
 
-      - name: Commit PDFs (only if changed)
+      - name: Commit PDF to repo
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          mkdir -p output
-          mv resume_${{ matrix.role }}.pdf output/
-          git add output/resume_${{ matrix.role }}.pdf
+
+          git add output/*.pdf
           git diff --cached --quiet && echo "no changes" && exit 0
-          git commit -m "CI: update résumé PDFs [skip ci]"
-          git push origin HEAD
+          git commit -m "CI: update resume PDFs [skip ci]"
+          git push --force-with-lease origin HEAD:${{ github.ref_name }}
