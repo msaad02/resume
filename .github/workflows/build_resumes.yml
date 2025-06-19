@@ -1,5 +1,7 @@
 name: Build resume variants
-on: [push, workflow_dispatch]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -28,8 +30,8 @@ jobs:
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
-          name: resume-${{ matrix.role }}
-          path: output/resume_${{ matrix.role }}.pdf
+          pattern: *.pdf
+          path: output
 
   commit:
     needs: build
@@ -44,7 +46,7 @@ jobs:
       - name: Pull PDFs from artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: resume-*
+          pattern: *.pdf
           path: output
           merge-multiple: true
 
