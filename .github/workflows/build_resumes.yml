@@ -42,7 +42,7 @@ jobs:
       - name: Pull PDFs from artifacts
         uses: actions/download-artifact@v4
         with:
-          path: output/*.pdf
+          pattern: output/*.pdf
           merge-multiple: true
 
       - name: Commit & push
