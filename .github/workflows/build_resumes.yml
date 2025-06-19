@@ -27,6 +27,7 @@ jobs:
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
+          name: Resume_${{ matrix.role }}
           path: output/*${{ matrix.role }}*.pdf
 
   commit:
