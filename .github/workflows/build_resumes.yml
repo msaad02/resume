@@ -46,6 +46,7 @@ jobs:
         with:
           pattern: resume-*
           path: output
+          merge-multiple: true
 
       - name: Commit & push
         run: |
