@@ -1,4 +1,4 @@
-name: Build all resume variants
+name: Build résumé variants
 on: [push, workflow_dispatch]
 
 jobs:
@@ -11,20 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Compile (${{ matrix.role }})
-        uses: xu-cheng/latex-action@v2
-        with:
-          pre_compile: |
-            cat <<'EOF' > build.tex
-            \input{roles/${{ matrix.role }}.tex}
-            \input{template/resume.tex}
-            EOF
-          root_file: build.tex
-          args: -pdf -silent -jobname=resume_${{ matrix.role }}
-          post_compile: latexmk -c   # wipe aux, log, fls
-          
+      - name: Install TeX Live + latexmk
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y texlive-latex-extra latexmk
+
+      - name: Build résumé (${{ matrix.role }})
+        run: bash template/build_resume.sh ${{ matrix.role }}
+
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: resume-${{ matrix.role }}
-          path: resume_${{ matrix.role }}.pdf
+          path: output/resume_${{ matrix.role }}.pdf
