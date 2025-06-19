@@ -10,6 +10,6 @@ If using the GitHub Action, updates will be triggered automatically on pushes, a
 ./template/build.sh <role>
 ```
 
-Where `<role>` is the name of the texfile in [roles/](roles/) you want to build the resume for, such as `mle` (machine learning engineer), `ds` (data scientist), etc. The script will generate a PDF in the `output/` directory, much like how the GitHub Action does.
+Where `<role>` is the name of the texfile in [roles/](roles/) you want to build the resume for, such as `MLE`, `DataEngineer`, etc. The script will generate a PDF in the `output/` directory, much like how the GitHub Action does.
 
 Feel free to use this repository as a template for your own resumes as well!
