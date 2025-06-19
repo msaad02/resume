@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        role: [de, mle] # [default, de, mle, ds, admin]
+        role: [Resume, Admin, DataEngineer, MLE]
 
     steps:
       - uses: actions/checkout@v4
