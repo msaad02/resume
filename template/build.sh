@@ -9,8 +9,11 @@ mkdir -p $TMPFILES
 
 cp template/resume.tex $TMPFILES/resume_build.tex
 
-sed -i '' "s|\\\input{roles/.*}|\\\input{../roles/${ROLE}.tex}|g" \
-    $TMPFILES/resume_build.tex
+# Replace the default role include with the selected role file.
+# GNU sed (used on Linux) doesn't require a backup suffix for -i.
+# The previous "-i ''" syntax was BSD-specific and caused errors on Linux.
+sed -i "s|\\\input{roles/.*}|\\\input{../roles/${ROLE}.tex}|g" \
+    "$TMPFILES/resume_build.tex"
 
 # Run latexmk: send all aux output to $TMPDIR, set jobname
 latexmk -pdf -silent \
