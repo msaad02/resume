@@ -1,0 +1,237 @@
+%-------------------------
+% Resume in Latex
+% Author : Kyle Capehart
+% License : MIT
+% Inspired by: https://github.com/arasgungore/arasgungore-CV
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{hyphenat}
+\usepackage{fontawesome}
+\usepackage[dvipsnames]{xcolor}
+\input{glyphtounicode}
+\input{roles/ROLE_PLACEHOLDER.tex}
+
+
+%---------- FONT OPTIONS ----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+\usepackage[default]{lato}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-3pt}\raggedright\large\bf\color{NavyBlue}
+}{}{0em}{}[\color{black}\titlerule \vspace{-8pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[2]{
+  \vspace{4pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeOrganizationHeading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small#3}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+%---------- HEADING ----------
+
+\begin{center}
+    \textbf{\Huge \color{NavyBlue} Matthew Saad} \\ \vspace{10pt}
+    \faEnvelope \hspace{.5pt} \href{mailto:msaad02@outlook.com}{msaad02@outlook.com}
+    $|$
+    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/mattsaad/}{in/mattsaad}
+    $|$
+    \faGithub \hspace{.5pt} \href{https://github.com/msaad02}{msaad02}
+    $|$
+    \faMapMarker \hspace{.5pt} Rochester, NY
+\end{center}
+
+\section{Overview}
+    \vspace{4pt}
+    \ROLEOVERVIEW
+
+%----------- SKILLS -----------
+
+\section{Skills}
+  \vspace{4pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textbf{Core Languages:}{ Python, SQL, Terraform} \\ \vspace{3pt}
+
+        \textbf{Data \& Infra Tooling:}{ Apache Spark, Databricks, Azure, Data Lake, Power BI} \\
+        \vspace{3pt}
+
+        \textbf{ML \& Gen-AI Tooling:}{ PyTorch, HuggingFace, scikit-learn, TensorFlow, LLMs, PEFT} \\ \vspace{3pt}
+
+        \textbf{MLOps \& DevOps:}{ Azure DevOps, CI/CD, Docker, Git, model deployment/monitoring}
+    }}
+  \resumeSubHeadingListEnd
+
+
+%----------- EXPERIENCE -----------
+
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {BI Admin @ Excellus BCBS}{Jun 2024 \textbf{--} Present}
+        \resumeItemListStart
+            \resumeItem{Primary Azure Databricks admin for 100+ engineers—owned infra, costs, optimization, and platform features.}
+            \resumeItem{Engineered a Spark-parallel ingest of 4 TB from Oracle, reducing costs and runtime by 85\%.}
+            \resumeItem{Built Azure DevOps CI/CD (Databricks Asset Bundles + service connections) for simple, version-controlled releases.}
+            \resumeItem{Surfaced Databricks spend by streaming billing logs to Power BI; flagged waste that cut monthly cloud costs 31\%.}
+            \resumeItem{Led Spark/compute tuning boot camp for 50 engineers; fixes cut costs 40\% on production jobs.}
+            \resumeItem{Published four internal Python libraries (ETL + governance) now used by 60+ pipelines.}
+        \resumeItemListEnd
+
+    \resumeSubheading
+      {Data Science Intern @ Excellus BCBS}{Jun 2022 \textbf{--} May 2024}
+        \resumeItemListStart
+            \resumeItem{Built two LLaMA-2 based RAG chatbots for querying HR \& policy docs; presented to C-suite and secured buy-in.}
+            \resumeItem{Developed a seq-to-seq transformer predicting ICD-10 codes from 80k+ records, improving diagnostic forecasting.}
+            \resumeItem{Refactored and deployed model scoring API, improving efficiency by 60\% and reducing compute time.}
+            \resumeItem{Prototyped prior-authorization automation and telehealth call summarization with BERT and T5 models.}
+        \resumeItemListEnd
+
+    \resumeSubheading
+    {Student Employee @ SUNY Brockport}{Aug 2022 \textbf{--} May 2024}
+        \resumeItemListStart
+            \resumeItem{Teaching assistant (Java OOP, MIPS), math tutor/grader.}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%----------- PROJECTS -----------
+
+\section{Projects}
+    \resumeSubHeadingListStart
+      
+      \resumeSubheading
+          {\textbf{BrockportGPT} $|$ Code: \href{https://github.com/msaad02/BrockportGPT}{\underline{msaad02/brockport-gpt}}}{Apr 2024}
+          \resumeItemListStart
+            \resumeItem{Created an open-source chatbot for my undergraduate institution using RAG and LLM Finetuning.}
+            \resumeItem{Built a 184M-parameter transformer model from scratch using PyTorch, fine-tuned for domain-specific QA.}
+            \resumeItem{Published research in an IEEE conference paper as part of ICECCEME 2024 (\href{https://www.matthewsaad.com/assets/files/senior-honors-thesis.pdf}{\underline{paper}}/\href{https://doi.org/10.1109/ICECCME62383.2024.10796881}{\underline{publication}}).}
+          \resumeItemListEnd
+
+        \resumeSubheading
+            {\textbf{Chess AI Bot} $|$ Code: \href{https://github.com/msaad02/final-project-ai-ml}{\underline{msaad02/chess-ai}}}{May 2023}
+            \resumeItemListStart
+            \resumeItem{Trained a CNN model to predict board evaluation rating given by stockfish, using TensorFlow.}
+            \resumeItem{Implemented a streaming dataset pipeline for large-scale training, optimizing memory and batch processing.}
+            \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%----------- EDUCATION & CERTIFICATIONS -----------
+
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Georgia Tech}{}
+      \resumeSubSubheading{M.S. Computational Analytics}{Starting Aug 2025}
+    \vspace{7pt}
+
+    \resumeSubheading
+      {SUNY Brockport}{}
+      \resumeSubSubheading{B.S. Computer Science \& Mathematics}{Aug 2020 - May 2024}
+      \vspace{1pt}
+      \resumeItemListStart
+      \resumeItem{Double major with concentrations in Software Engineering and Statistics.}
+      \resumeItem{Honors college; 3.9/4.0 GPA \textit{Summa Cum Laude}.}
+      \resumeItemListEnd
+    \vspace{7pt}
+
+  \resumeSubHeadingListEnd
+
+\end{document}
