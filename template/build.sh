@@ -23,7 +23,7 @@ latexmk -pdf -silent \
 # Check sucessful creation, if not, error out
 if [ $? -ne 0 ]; then
     echo "LaTeX build failed."
-    # rm -rf $TMPFILES
+    rm -rf $TMPFILES
     exit 1
 fi
 
